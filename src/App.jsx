@@ -96,8 +96,26 @@ function App() {
     }));
   };
 
+  const handleInputQuantity = (productId, value) => {
+    if (value === '') {
+      setQuantities(prev => ({
+        ...prev,
+        [productId]: ''
+      }));
+      return;
+    }
+    const qty = parseInt(value);
+    if (!isNaN(qty)) {
+      setQuantities(prev => ({
+        ...prev,
+        [productId]: Math.max(1, qty)
+      }));
+    }
+  };
+
   const addToCart = (product) => {
-    const qty = quantities[product.id] || 1;
+    const qtyVal = quantities[product.id];
+    const qty = (qtyVal === '' || isNaN(parseInt(qtyVal))) ? 1 : parseInt(qtyVal);
     setCart(prev => {
       const existing = prev.find(item => item.id === product.id);
       if (existing) {
@@ -123,7 +141,7 @@ function App() {
   const orderViaWhatsApp = () => {
     const phone1 = '2348033837951';
     const message = encodeURIComponent(
-      `Hello Festival Bakery, I would like to place an order (from your website):\n\n${cart.map(item => `- ${item.name} (${item.quantity} units)`).join('\n')}\n\nTotal: ₦${cartTotal.toLocaleString()}\n\nPlease let me know when it will be ready!`
+      `Hello Festival Special Bread, I would like to place an order (from your website):\n\n${cart.map(item => `- ${item.name} (${item.quantity} units)`).join('\n')}\n\nTotal: ₦${cartTotal.toLocaleString()}\n\nPlease let me know when it will be ready!`
     );
     window.open(`https://wa.me/${phone1}?text=${message}`, '_blank');
   };
@@ -180,7 +198,7 @@ function App() {
 
       <nav className={scrolled ? 'scrolled' : ''}>
         <div className="logo">
-          FESTIVAL <span>BREAD</span>
+          FESTIVAL <span>SPECIAL BREAD</span>
         </div>
 
         {/* Mobile Menu Icon */}
@@ -258,7 +276,13 @@ function App() {
 
                 <div className="quantity-selector">
                   <button onClick={() => handleQuantityChange(product.id, -1)}>-</button>
-                  <span>{quantities[product.id] || 1}</span>
+                  <input
+                    type="number"
+                    className="quantity-input"
+                    value={quantities[product.id] || 1}
+                    onChange={(e) => handleInputQuantity(product.id, e.target.value)}
+                    min="1"
+                  />
                   <button onClick={() => handleQuantityChange(product.id, 1)}>+</button>
                 </div>
 
@@ -298,7 +322,7 @@ function App() {
 
       <section id="about" className="section">
         <div className="section-title">
-          <h2>Why Choose Festival Bakery?</h2>
+          <h2>Why Choose Festival Special Bread?</h2>
           <p>We pride ourselves on quality, tradition, and large-scale supply.</p>
         </div>
         <div className="feature-grid">
@@ -353,7 +377,7 @@ function App() {
 
       <footer>
         <div className="logo" style={{ color: 'white', justifyContent: 'center', marginBottom: '1.5rem' }}>
-          FESTIVAL <span style={{ color: '#FFD700' }}>BREAD</span>
+          FESTIVAL <span style={{ color: '#FFD700' }}>SPECIAL BREAD</span>
         </div>
         <p style={{ opacity: 0.7, marginBottom: '2rem' }}>"You deserve the festive taste in your home."</p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
@@ -361,7 +385,7 @@ function App() {
           <span>📞 08033837951</span>
           <span>📞 09079008900</span>
         </div>
-        <p style={{ fontSize: '0.8rem', opacity: 0.5 }}>&copy; 2026 Festival Bakery. All rights reserved.</p>
+        <p style={{ fontSize: '0.8rem', opacity: 0.5 }}>&copy; 2026 Festival Special Bread. All rights reserved.</p>
       </footer>
     </div>
   );

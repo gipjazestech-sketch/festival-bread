@@ -789,3 +789,28 @@ footer {
     font-size: 1.5rem;
   }
 }
+
+/* Quantity Input */
+.quantity-input {
+  width: 50px;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+  font-family: 'Outfit', sans-serif;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.quantity-input:focus {
+  outline: none;
+  border-bottom: 2px solid var(--primary);
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
