@@ -49,15 +49,19 @@ body::before {
 
 @keyframes wallpaperFloat {
   0% {
-    transform: scale(1) translate(0, 0);
-  }
-
-  50% {
-    transform: scale(1.1) translate(-2%, -2%);
+    transform: scale(1);
   }
 
   100% {
-    transform: scale(1) translate(0, 0);
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 768px) {
+  body::before {
+    animation: none;
+    /* Disable background animation on mobile */
+    transform: none;
   }
 }
 
@@ -245,6 +249,26 @@ nav.scrolled {
 
   100% {
     background-position: 0% 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-img-container {
+    animation: none;
+    /* Disable gradient animation on mobile */
+  }
+
+  .glass,
+  .nav.scrolled,
+  .search-input,
+  .feature-card,
+  .testimonial-card,
+  footer,
+  .cart-drawer {
+    backdrop-filter: none !important;
+    /* Disable expensive blur on mobile */
+    background: rgba(20, 20, 20, 0.95);
+    /* Solid fallback background */
   }
 }
 
