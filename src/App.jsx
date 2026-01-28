@@ -135,7 +135,7 @@ function App() {
   return (
     <div className="app">
       {/* Floating Cart Button */}
-      <button className="cart-badge" onClick={() => setIsCartOpen(true)}>
+      <button className="cart-badge" onClick={() => setIsCartOpen(true)} aria-label="Open Cart">
         <span>🛒</span>
         {cart.length > 0 && <div className="badge">{cart.reduce((a, b) => a + b.quantity, 0)}</div>}
       </button>
@@ -155,7 +155,7 @@ function App() {
           ) : (
             cart.map(item => (
               <div key={item.id} className="cart-item">
-                <img src={item.image} alt={item.name} />
+                <img src={item.image} alt={item.name} loading="lazy" width="60" height="60" />
                 <div className="cart-item-info">
                   <h4>{item.name}</h4>
                   <p>{item.price} x {item.quantity}</p>
@@ -180,7 +180,7 @@ function App() {
 
       <nav className={scrolled ? 'scrolled' : ''}>
         <div className="logo">
-          FESTIVAL <span>BAKERY</span>
+          FESTIVAL <span>BREAD</span>
         </div>
 
         {/* Mobile Menu Icon */}
@@ -226,7 +226,7 @@ function App() {
             <a href="#products" className="btn btn-primary">Discover More</a>
           </div>
           <div className="discovery-image">
-            <img src="/bakery_full_display.png" alt="Bakery Display" />
+            <img src="/bakery_full_display.png" alt="Bakery Display" loading="lazy" />
           </div>
         </div>
       </section>
@@ -250,7 +250,7 @@ function App() {
             <div key={product.id} className="product-card">
               <span className="product-price">{product.price}</span>
               <div className="product-img-container">
-                <img src={product.image} alt={product.name} className="product-img" />
+                <img src={product.image} alt={product.name} className="product-img" loading="lazy" />
               </div>
               <div className="product-info">
                 <h3 className="product-name">{product.name}</h3>
@@ -353,7 +353,7 @@ function App() {
 
       <footer>
         <div className="logo" style={{ color: 'white', justifyContent: 'center', marginBottom: '1.5rem' }}>
-          FESTIVAL <span style={{ color: '#FFD700' }}>BAKERY</span>
+          FESTIVAL <span style={{ color: '#FFD700' }}>BREAD</span>
         </div>
         <p style={{ opacity: 0.7, marginBottom: '2rem' }}>"You deserve the festive taste in your home."</p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginBottom: '2rem', flexWrap: 'wrap' }}>
