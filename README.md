@@ -1,16 +1,35 @@
-# React + Vite
+# 🍞 Festival Bakery - Freshly Baked Daily
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the official digital storefront for **Festival Bakery**, Lagos. We specialize in premium, 100% natural, and bromate-free bread, delivered fresh from our ovens to your home.
 
-Currently, two official plugins are available:
+![Bakery Banner](public/bakery_full_display.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
+- **Premium Product Gallery**: View our wide collection of freshly baked loaves, rolls, and buns.
+- **Dynamic Pricing**: Updated real-time pricing for all sizes and varieties.
+- **WhatsApp Integration**: Fast and easy ordering directly via WhatsApp.
+- **Responsive Design**: A stunning, modern interface optimized for mobile and desktop.
+- **Natural Ingredients**: Zero bromate, 100% natural quality guaranteed.
 
-## React Compiler
+## 🍞 Our Collection
+Explore our signature loaves:
+- **Family Large Loaf**: Perfect for the whole family breakfast (₦1,500).
+- **Standard Sliced**: The classic festival taste (₦1,000).
+- **Special Golden Loaf**: Buttery, sweet, and premium (₦600).
+- **And much more...**
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📍 Visit Us
+**Address**: House 3, 2nd Avenue 205 Road, Festac Town, Lagos, Nigeria.
 
-## Expanding the ESLint configuration
+## 🛠️ Technology Stack
+- **Frontend**: React.js
+- **Bundler**: Vite
+- **Styling**: Vanilla CSS (Premium Glassmorphism Design)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Local Development
+1. Clone the repository
+2. Run `npm install`
+3. Run `npm run dev` to start the development server
+
+---
+*"You deserve the festive taste in your home."*
