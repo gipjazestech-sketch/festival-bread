@@ -314,7 +314,7 @@ function App() {
                   <input
                     type="number"
                     className="quantity-input"
-                    value={quantities[product.id] || 1}
+                    value={quantities[product.id] === undefined ? 1 : quantities[product.id]}
                     onChange={(e) => handleInputQuantity(product.id, e.target.value)}
                     min="1"
                   />
