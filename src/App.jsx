@@ -236,6 +236,41 @@ function App() {
         </div>
       </section>
 
+      {/* NEW: Ad Video / Marquee Section */}
+      <section className="ad-video-section">
+        <div className="ad-video-header">
+          <h3>✨ Festival Spotlight ✨</h3>
+          <div className="ad-controls">
+            <button className="ad-btn" onClick={() => {
+              const text = "Welcome to Festival Special Bread. We bake the finest, freshest bread in Lagos daily. From our Family Large Loaf to our sweet Golden Special, every bite is a joy. High quality, zero bromate, and perfect for your home. Order now!";
+              const utterance = new SpeechSynthesisUtterance(text);
+              utterance.rate = 0.9; // Slightly slower for clarity
+              utterance.pitch = 1.1; // Slightly higher/friendly
+              window.speechSynthesis.cancel(); // Stop any previous
+              window.speechSynthesis.speak(utterance);
+            }}>
+              🔊 Play Audio Ad
+            </button>
+          </div>
+        </div>
+
+        <div className="ad-track-container">
+          {/* We duplicate the products list to create an infinite loop effect. 
+              The CSS animation slides it by -50%, seamlessly resetting. */}
+          <div className="ad-track">
+            {[...products, ...products].map((product, index) => (
+              <div key={`${product.id}-${index}`} className="ad-card">
+                <span className="ad-price-tag">{product.price}</span>
+                <img src={product.image} alt={product.name} />
+                <div className="ad-overlay">
+                  <div className="ad-name">{product.name}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section">
         <div className="discovery-grid">
           <div className="discovery-text">
