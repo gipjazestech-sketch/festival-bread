@@ -74,16 +74,17 @@ const products = [
 ];
 
 const cakeProducts = [
-  { id: 101, name: 'Velvet Dream Cake', price: '₦15,000', desc: 'A rich, velvety texture with a hint of cocoa and premium cream cheese frosting.', image: 'https://drive.google.com/uc?export=view&id=10IGPsFFbDNtQqqaQsSPEmqXpHMY9Luw1' },
-  { id: 102, name: 'Golden Celebration', price: '₦20,000', desc: 'Our signature golden sponge cake, perfect for birthdays and anniversaries.', image: 'https://drive.google.com/uc?export=view&id=14io1femv5xdwFXoUqPG_-sdtlyB37GXg' },
-  { id: 103, name: 'Chocolate Overload', price: '₦18,000', desc: 'Triple layers of Belgian chocolate with a smooth ganache finish.', image: 'https://drive.google.com/uc?export=view&id=154U2T_cZeIO8N8a9ddUC5TQY3AG0GbQJ' },
-  { id: 104, name: 'Vanilla Bean Classic', price: '₦12,000', desc: 'Pure Madagascar vanilla bean sponge with light buttercream.', image: 'https://drive.google.com/uc?export=view&id=1ESqUfnYaUd1ZyigMGHlYR6R_CcIoT-LN' },
-  { id: 105, name: 'Strawberry Delight', price: '₦16,000', desc: 'Fresh strawberry-infused layers with real fruit compote.', image: 'https://drive.google.com/uc?export=view&id=1FkWz0OyWb2Ha3PrGj0kqa5FuUomYs9ZU' },
-  { id: 106, name: 'Caramel Crunch', price: '₦17,500', desc: 'Salted caramel layers with crunchy praline bits.', image: 'https://drive.google.com/uc?export=view&id=1QkhZYzZheVufd0qgR8bc4Dbh9XqM_sa_' },
-  { id: 107, name: 'Red Velvet Royale', price: '₦19,000', desc: 'The king of cakes. Deep red layers with a royal touch of flavor.', image: 'https://drive.google.com/uc?export=view&id=1VAE8JbfTjLahPWR9BLyzCXeDDqlJ1DXe' },
-  { id: 108, name: 'Mocha Magic', price: '₦15,500', desc: 'Coffee-infused sponge for that perfect morning or evening treat.', image: 'https://drive.google.com/uc?export=view&id=1VHwptOq_XoMbehOAcJaUaJr-IxgFT0KV' },
-  { id: 109, name: 'Fruit Fantasy', price: '₦22,000', desc: 'Loaded with seasonal fresh fruits and light whipped cream.', image: 'https://drive.google.com/uc?export=view&id=1ZoVzpdcan1yociXZb7MWApP4GSxbxqrU' }
+  { id: 101, name: 'Velvet Dream Cake', desc: 'A rich, velvety texture with a hint of cocoa and premium cream cheese frosting.', image: '/images/cakes/1778083734937.jpg' },
+  { id: 102, name: 'Golden Celebration', desc: 'Our signature golden sponge cake, perfect for birthdays and anniversaries.', image: '/images/cakes/1778083747062.jpg' },
+  { id: 103, name: 'Chocolate Overload', desc: 'Triple layers of Belgian chocolate with a smooth ganache finish.', image: '/images/cakes/1778083824638.jpg' },
+  { id: 104, name: 'Vanilla Bean Classic', desc: 'Pure Madagascar vanilla bean sponge with light buttercream.', image: '/images/cakes/1778083880798.jpg' },
+  { id: 105, name: 'Strawberry Delight', desc: 'Fresh strawberry-infused layers with real fruit compote.', image: '/images/cakes/1778083936292.jpg' },
+  { id: 106, name: 'Caramel Crunch', desc: 'Salted caramel layers with crunchy praline bits.', image: '/images/cakes/1778083952237.jpg' },
+  { id: 107, name: 'Red Velvet Royale', desc: 'The king of cakes. Deep red layers with a royal touch of flavor.', image: '/images/cakes/1778084029051.jpg' },
+  { id: 108, name: 'Mocha Magic', desc: 'Coffee-infused sponge for that perfect morning or evening treat.', image: '/images/cakes/1778084060792.jpg' },
+  { id: 109, name: 'Fruit Fantasy', desc: 'Loaded with seasonal fresh fruits and light whipped cream.', image: '/images/cakes/1778084065579.jpg' }
 ];
+
 
 
 function App() {
@@ -156,10 +157,11 @@ function App() {
   const orderViaWhatsApp = () => {
     const phone1 = '2348033837951';
     const message = encodeURIComponent(
-      `Hello Festival Special Bread & Cakes, I would like to place an order (from your website):\n\n${cart.map(item => `- ${item.name} (${item.quantity} units)`).join('\n')}\n\nTotal: ₦${cartTotal.toLocaleString()}\n\nPlease let me know when it will be ready!`
+      `Hello Festival Special Bread & Cakes, I would like to place an order (from your website):\n\n${cart.map(item => `- ${item.name} (${item.quantity} units)`).join('\n')}\n\nPlease let me know when it will be ready!`
     );
     window.open(`https://wa.me/${phone1}?text=${message}`, '_blank');
   };
+
 
 
   const currentProducts = view === 'bread' ? products : cakeProducts;
@@ -195,8 +197,9 @@ function App() {
                 <img src={item.image} alt={item.name} loading="lazy" width="60" height="60" />
                 <div className="cart-item-info">
                   <h4>{item.name}</h4>
-                  <p>{item.price} x {item.quantity}</p>
+                  <p>Quantity: {item.quantity}</p>
                 </div>
+
                 <button onClick={() => removeFromCart(item.id)} className="remove-item">&times;</button>
               </div>
             ))
@@ -204,14 +207,11 @@ function App() {
         </div>
         {cart.length > 0 && (
           <div className="cart-footer">
-            <div className="total">
-              <span>Total:</span>
-              <span>₦{cartTotal.toLocaleString()}</span>
-            </div>
             <button className="btn btn-primary" style={{ width: '100%', marginTop: '1rem' }} onClick={orderViaWhatsApp}>
               Checkout via WhatsApp
             </button>
           </div>
+
         )}
       </div>
 
@@ -300,13 +300,13 @@ function App() {
           <div className="ad-track-container">
             <div className="ad-track">
               {[...products, ...products].map((product, index) => (
-                <div key={`${product.id}-${index}`} className="ad-card">
-                  <span className="ad-price-tag">{product.price}</span>
-                  <img src={product.image} alt={product.name} />
-                  <div className="ad-overlay">
-                    <div className="ad-name">{product.name}</div>
-                  </div>
+              <div key={`${product.id}-${index}`} className="ad-card">
+                <img src={product.image} alt={product.name} />
+                <div className="ad-overlay">
+                  <div className="ad-name">{product.name}</div>
                 </div>
+              </div>
+
               ))}
             </div>
           </div>
@@ -354,10 +354,10 @@ function App() {
         <div className="product-grid">
           {filteredProducts.map(product => (
             <div key={product.id} className="product-card">
-              <span className="product-price">{product.price}</span>
               <div className="product-img-container">
                 <img src={product.image} alt={product.name} className="product-img" loading="lazy" />
               </div>
+
               <div className="product-info">
                 <h3 className="product-name">{product.name}</h3>
                 <p className="product-desc">{product.desc}</p>
