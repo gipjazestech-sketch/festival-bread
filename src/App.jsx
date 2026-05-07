@@ -228,8 +228,8 @@ function App() {
         </div>
 
         <ul className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
-        <ul className={`nav-links ${isMobileMenuOpen ? 'mobile-open' : ''}`}>
           <li><a href="#home" onClick={() => setIsMobileMenuOpen(false)}>Home</a></li>
+
           <li><a href="#products" onClick={() => setIsMobileMenuOpen(false)}>Products</a></li>
           <li><a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a></li>
           <li><a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a></li>
