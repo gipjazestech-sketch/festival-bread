@@ -82,7 +82,19 @@ const cakeProducts = [
   { id: 106, name: 'Caramel Crunch', desc: 'Salted caramel layers with crunchy praline bits.', image: '/images/cakes/1778083952237.jpg' },
   { id: 107, name: 'Red Velvet Royale', desc: 'The king of cakes. Deep red layers with a royal touch of flavor.', image: '/images/cakes/1778084029051.jpg' },
   { id: 108, name: 'Mocha Magic', desc: 'Coffee-infused sponge for that perfect morning or evening treat.', image: '/images/cakes/1778084060792.jpg' },
-  { id: 109, name: 'Fruit Fantasy', desc: 'Loaded with seasonal fresh fruits and light whipped cream.', image: '/images/cakes/1778084065579.jpg' }
+  { id: 109, name: 'Fruit Fantasy', desc: 'Loaded with seasonal fresh fruits and light whipped cream.', image: '/images/cakes/1778084065579.jpg' },
+  { id: 110, name: 'Traditional Wedding Drum', desc: 'Beautifully crafted drum cake for traditional ceremonies.', image: '/images/cakes/1778084101735.jpg' },
+  { id: 111, name: 'Royal Purple Couple', desc: 'Elegant traditional couple cake in royal purple attire.', image: '/images/cakes/1778084110564.jpg' },
+  { id: 112, name: 'Coral Beads Masterpiece', desc: 'Stunning cake adorned with edible traditional coral beads.', image: '/images/cakes/1778084115245.jpg' },
+  { id: 113, name: 'Pink & Blue Traditional', desc: 'Vibrant traditional couple design with matching accessories.', image: '/images/cakes/1778084118525.jpg' },
+  { id: 114, name: 'Golden Drip Cherry', desc: 'Delicious vanilla cake with a golden drip and fresh cherries.', image: '/images/cakes/download (5).jpeg' },
+  { id: 115, name: 'Pink Rose Swirls', desc: 'Beautiful cake decorated with delicate pink and white rose swirls.', image: '/images/cakes/images (18).jpeg' },
+  { id: 116, name: 'Chocolate Oreo Drip', desc: 'Decadent chocolate cake with Oreo toppings and chocolate drip.', image: '/images/cakes/images (19).jpeg' },
+  { id: 117, name: 'Pink & Gold 70th', desc: 'Elegant 70th birthday cake with pink base and gold leaves.', image: '/images/cakes/images (20).jpeg' },
+  { id: 118, name: 'Oreo & Chocolate Bliss', desc: 'Smooth buttercream cake topped with Oreos and chocolate treats.', image: '/images/cakes/images (21).jpeg' },
+  { id: 119, name: 'Sweet Mum Birthday', desc: 'Special birthday cake with gold bars and sweet message.', image: '/images/cakes/images (22).jpeg' },
+  { id: 120, name: 'Strawberry Layer Cake', desc: 'Classic double layer sponge cake with fresh strawberries and cream.', image: '/images/cakes/images (23).jpeg' },
+  { id: 121, name: 'Abstract Gold & Black', desc: 'Modern abstract design with gold spheres and artistic patterns.', image: '/images/cakes/images (24).jpeg' }
 ];
 
 
@@ -233,22 +245,6 @@ function App() {
           <li><a href="#products" onClick={() => setIsMobileMenuOpen(false)}>Products</a></li>
           <li><a href="#about" onClick={() => setIsMobileMenuOpen(false)}>About</a></li>
           <li><a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>Contact</a></li>
-          <li>
-            <div className="view-switcher-nav">
-              <button 
-                className={`switch-btn ${view === 'bread' ? 'active' : ''}`} 
-                onClick={() => { setView('bread'); setIsMobileMenuOpen(false); }}
-              >
-                Bread
-              </button>
-              <button 
-                className={`switch-btn ${view === 'cake' ? 'active' : ''}`} 
-                onClick={() => { setView('cake'); setIsMobileMenuOpen(false); }}
-              >
-                Cakes
-              </button>
-            </div>
-          </li>
           <li className="mobile-only">
 
             <button className="btn btn-primary" onClick={() => { setIsCartOpen(true); setIsMobileMenuOpen(false); }}>
@@ -264,7 +260,26 @@ function App() {
         </div>
       </nav>
 
-      <section id="home" className={`hero ${view === 'cake' ? 'cake-hero' : ''}`}>
+      <div className="mobile-view-switcher-container" style={{ background: 'var(--card-bg)', borderBottom: '1px solid #eaeaea', paddingTop: scrolled ? '70px' : '0' }}>
+        <div className="view-switcher-nav" style={{ justifyContent: 'center', padding: '1rem' }}>
+          <button 
+            className={`switch-btn ${view === 'bread' ? 'active' : ''}`} 
+            onClick={() => { setView('bread'); }}
+            style={{ padding: '0.8rem 2rem', fontSize: '1.1rem' }}
+          >
+            🥖 Bread
+          </button>
+          <button 
+            className={`switch-btn ${view === 'cake' ? 'active' : ''}`} 
+            onClick={() => { setView('cake'); }}
+            style={{ padding: '0.8rem 2rem', fontSize: '1.1rem' }}
+          >
+            🎂 Cakes
+          </button>
+        </div>
+      </div>
+
+      <section id="home" className={`hero ${view === 'cake' ? 'cake-hero' : ''}`} style={{ marginTop: '0' }}>
         <h1>{view === 'bread' ? 'Freshly Baked Daily' : 'Exquisite Festival Cakes'}</h1>
         <p>
           {view === 'bread' 
