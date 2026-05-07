@@ -260,8 +260,8 @@ function App() {
         </div>
       </nav>
 
-      <div className="mobile-view-switcher-container" style={{ background: 'var(--card-bg)', borderBottom: '1px solid #eaeaea', paddingTop: scrolled ? '70px' : '0' }}>
-        <div className="view-switcher-nav" style={{ justifyContent: 'center', padding: '1rem' }}>
+      <section id="home" className={`hero ${view === 'cake' ? 'cake-hero' : ''}`}>
+        <div className="view-switcher-nav" style={{ marginBottom: '2rem', marginTop: '-2rem', zIndex: 10, transform: 'scale(1.1)' }}>
           <button 
             className={`switch-btn ${view === 'bread' ? 'active' : ''}`} 
             onClick={() => { setView('bread'); }}
@@ -277,9 +277,6 @@ function App() {
             🎂 Cakes
           </button>
         </div>
-      </div>
-
-      <section id="home" className={`hero ${view === 'cake' ? 'cake-hero' : ''}`} style={{ marginTop: '0' }}>
         <h1>{view === 'bread' ? 'Freshly Baked Daily' : 'Exquisite Festival Cakes'}</h1>
         <p>
           {view === 'bread' 
