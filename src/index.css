@@ -126,6 +126,45 @@ nav.scrolled {
   color: var(--primary-dark);
 }
 
+/* View Switcher */
+.view-switcher-nav {
+  display: flex;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-left: 1rem;
+}
+
+.switch-btn {
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  border: none;
+  background: transparent;
+  color: var(--white);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.9rem;
+}
+
+.switch-btn.active {
+  background: var(--primary);
+  color: var(--secondary);
+  box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+}
+
+.switch-btn:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cake-hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80') !important;
+  background-size: cover !important;
+  background-position: center !important;
+}
+
+
 /* Hero Section */
 .hero {
   height: 100vh;
